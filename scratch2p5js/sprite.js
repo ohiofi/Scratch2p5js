@@ -239,10 +239,12 @@ class Sprite {
     this.radius = this.width / 2;
   }
   setX(someNumber) {
-    //?
+    //sets x to some number
+      this.x = someNumber;
   }
   setY(someNumber) {
-    //?
+    //sets y to some number
+      this.y = someNumber;
   }
   show() {
     if(this.showSprite) {
