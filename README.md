@@ -1,6 +1,10 @@
 # Scratch2p5js
 A Sprite class for p5.js that makes it easy to move from coding Scratch to coding p5.js
 
+
+
+
+
 ### How to contribute:
 
 - [Fork](https://help.github.com/articles/github-glossary/#fork) this repository
@@ -17,3 +21,8 @@ Return Type | Method and Args                 | Description
 ------------|---------------------------------|------------
 void        | setEyeColor(String someColor) | Sets the eye color of this PotatoHead to the given String argument
 String      | toString()  | Method to return a String listing all instance variables
+
+
+move(x): moves "x" steps
+turn(x): turns "x "degrees
+point(x): points in direction "x"
