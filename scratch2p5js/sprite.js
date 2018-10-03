@@ -7,7 +7,7 @@ class Sprite {
       alert("Oof! You goofed! All sprites require one argument (an array of one or more images). Use loadImage() in the preload function, then pass the image(s) as an array argument.");
       return
     }
-    
+
     // defaults true in all cases
     this.debugMode = false;
     this.animationArray = animationArray;
@@ -18,7 +18,7 @@ class Sprite {
     this.flashEnabled = false;
     this.isSpriteVisible = true;
     this.rotation = 0;
-    
+
     switch (arguments.length) {
       case 1:
       case 2:
@@ -94,7 +94,7 @@ class Sprite {
   }
   blink(someFlashSpeed) {
     /*
-    Will flash the sprite at a given rate, once every someFlashSpeed frames. 
+    Will flash the sprite at a given rate, once every someFlashSpeed frames.
     Arguments optional, will default to once every 5 frames if no arguments.
     */
     switch (arguments.length) {
@@ -135,7 +135,7 @@ class Sprite {
     this.flashEnabled = false;
   }
   getHeight() {
-    //?
+    return (this.height)
   }
   getImageHeight() {
     // returns the scaled image height
@@ -146,16 +146,16 @@ class Sprite {
     return (this.animationArray[0].width * this.imageScale)
   }
   getRadius() {
-    //?
+    return (this.radius)
   }
   getWidth() {
-    //?
+    return (this.width)
   }
   getX() {
-    //?
+    return (this.x)
   }
   getY() {
-    //?
+    return (this.y)
   }
   hideSprite() {
     //?
@@ -171,18 +171,18 @@ class Sprite {
     //?
   }
   setDebug(trueOrFalse) {
-    //?
+    this.debugMode= trueOrFalse;
   }
   setDebugOff() {
-    //?
+    this.debugMode= false;
   }
   setDebugOn() {
-    //?
+    this.debugMode= true;
   }
   setDirection(oneOrNegativeOne) {
     if(oneOrNegativeOne === 1 || oneOrNegativeOne === -1){ // only allow 1 or -1
       this.direction = oneOrNegativeOne;
-    }  
+    }
   }
   setHeight(someNumber) {
     /*
@@ -210,7 +210,7 @@ class Sprite {
   setSizeTo(somePercent) {
     /*
     set the sprite's size to specified % of original image size
-    sets the image scale, collider height, collider radius, and collider width 
+    sets the image scale, collider height, collider radius, and collider width
     setSizeTo(50) will set the size to 50 percent
     */
     this.imageScale = (1 + somePercent / 100);
@@ -227,7 +227,7 @@ class Sprite {
     this.radius = someNumber
     this.setHeight(this.radius * 2);
     this.setWidth(this.radius * 2);
-    
+
   }
   setWidth(someNumber) {
     /*
@@ -277,5 +277,5 @@ class Sprite {
   }
   switchCostumeTo(someNumber) {
     //?
-  } 
+  }
 }
