@@ -204,7 +204,6 @@ class Sprite {
 
   */
   hideSprite() {
-    //?
     this.isSpriteVisible = false;
   }
   /*
