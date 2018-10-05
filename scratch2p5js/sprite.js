@@ -205,6 +205,7 @@ class Sprite {
   */
   hideSprite() {
     //?
+    this.isSpriteVisible = false;
   }
   /*
 
@@ -370,7 +371,7 @@ class Sprite {
 
   */
   showSprite() {
-    //?
+    image(animate(_startPosition,_endPosition),this.x,this.y,this.height,this.width)
   }
   /*
 
