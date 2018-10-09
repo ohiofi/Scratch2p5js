@@ -229,7 +229,7 @@ class Sprite {
 
   */
   setAnimationSpeed(newSpeed) {
-    //?
+    this.animationSpeed = newSpeed
   }
   /*
 
