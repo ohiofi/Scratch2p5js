@@ -2,15 +2,14 @@
 
 class Sprite {
 	/*
-	    constructor with optional arguments. need to add a base64 sprite if user doesn't specify an animation array.
+	    constructor with optional arguments. uses scratch cat if user doesn't specify an animation array.
 	*/
   constructor(animationArray, x, y, radius, width, height) {
     if(arguments.length == 0) {
       let defaultImage = loadImage("https://cdn.glitch.com/451167f6-8c0d-4827-a377-0db8f3a22dd1%2FScratch_Cat.png?1538584014149")
       animationArray = [defaultImage]
     }
-
-    // defaults true in all cases
+	// defaults true in all cases
     this.debugMode = false;
     this.animationArray = animationArray;
     this.animationSpeed = random(0.2,0.5);
@@ -50,15 +49,6 @@ class Sprite {
         this.width = radius * 2;
         this.height = radius * 2;
         this.imageScale = radius * 2 / this.animationArray[0].width;
-        break
-      case 5:
-        // Sprite([animationArray], x, y, width, height)
-        this.x = x;
-        this.y = y;
-        this.radius = width / 2;
-        this.width = width;
-        this.height = height;
-        this.imageScale = this.width / this.animationArray[0].width;
         break
       case 0:
       default:
@@ -162,57 +152,55 @@ class Sprite {
     this.flashEnabled = false;
   }
   /*
-
+	returns the collider height
   */
   getHeight() {
     return (this.height)
   }
   /*
-
+	returns the scaled image height
   */
   getImageHeight() {
-    // returns the scaled image height
     return (this.animationArray[0].height * this.imageScale)
   }
   /*
-
+	returns the scaled image width
   */
   getImageWidth() {
-    // returns the scaled image width
     return (this.animationArray[0].width * this.imageScale)
   }
   /*
-
+	returns the collider radius
   */
   getRadius() {
     return (this.radius)
   }
   /*
-
+	returns the collider width
   */
   getWidth() {
     return (this.width)
   }
   /*
-
+	returns x coordinate
   */
   getX() {
     return (this.x)
   }
   /*
-
+	returns y coordinate
   */
   getY() {
     return (this.y)
   }
   /*
-
+	makes sprite invisible
   */
   hideSprite() {
     this.isSpriteVisible = false;
   }
   /*
-
+	increase animationCounter and switchCostume 
   */
   nextCostume() {
     this.animationCounter++;
@@ -225,31 +213,31 @@ class Sprite {
     //?
   }
   /*
-
+	set a new animationSpeed
   */
   setAnimationSpeed(newSpeed) {
     this.animationSpeed = newSpeed
   }
   /*
-
+	set debugMode to either true or false
   */
   setDebug(trueOrFalse) {
     this.debugMode= trueOrFalse;
   }
   /*
-
+	set debugMode to false
   */
   setDebugOff() {
     this.debugMode= false;
   }
   /*
-
+	set debugMode to true
   */
   setDebugOn() {
     this.debugMode= true;
   }
   /*
-
+	set the sprite direct to 1 (facing right) or -1 (facing left)
   */
   setDirection(oneOrNegativeOne) {
     if(oneOrNegativeOne === 1 || oneOrNegativeOne === -1){ // only allow 1 or -1
@@ -257,89 +245,68 @@ class Sprite {
     }
   }
   /*
-
+	set the collider width
+    does NOT change the collider height, collider radius, image height, or image width
   */
   setHeight(someNumber) {
-    /*
-    set the collider width
-    does NOT change the collider height, collider radius, image height, or image width
-    */
     this.height = someNumber
   }
   /*
-
-  */
-  setImageHeight(someNumber) {
-    /*
-    set the image height
+	set the image height
     also changes the image width
     does NOT change the collider height, collider radius, or collider width
-    */
+  */
+  setImageHeight(someNumber) {
     this.imageScale = someNumber / this.animationArray[0].height;
   }
   /*
-
-  */
-  setImageWidth(someNumber) {
-    /*
-    set the image width
+	set the image width
     also changes the image height
     does NOT change the collider height, collider radius, or collider width
-    */
+  */
+  setImageWidth(someNumber) {
     this.imageScale = someNumber / this.animationArray[0].height;
   }
   /*
-
-  */
-  setSizeTo(somePercent) {
-    /*
-    set the sprite's size to specified % of original image size
+	set the sprite's size to specified % of original image size
     sets the image scale, collider height, collider radius, and collider width
     setSizeTo(50) will set the size to 50 percent
-    */
+  */
+  setSizeTo(somePercent) {
     this.imageScale = (1 + somePercent / 100);
     this.setHeight(this.height * this.imageScale);
     this.setRadius(this.radius * this.imageScale);
     this.setWidth(this.width * this.imageScale);
   }
   /*
-
-  */
-  setRadius(someNumber) {
-    /*
-    set the collider radius
+	set the collider radius
     also sets the collider height and collider width
     does NOT change the image height or image width
-    */
+  */
+  setRadius(someNumber) {
     this.radius = someNumber
     this.setHeight(this.radius * 2);
     this.setWidth(this.radius * 2);
-
   }
   /*
-
-  */
-  setWidth(someNumber) {
-    /*
-    set the collider width
+	set the collider width
     also sets the collider radius
     does NOT change the collider width, image height, or image width
-    */
+  */
+  setWidth(someNumber) {
     this.width = someNumber
     this.radius = this.width / 2;
   }
   /*
-
+	sets x to some number
   */
   setX(someNumber) {
-    //sets x to some number
       this.x = someNumber;
   }
   /*
-
+	sets y to some number
   */
   setY(someNumber) {
-    //sets y to some number
       this.y = someNumber;
   }
   /*
@@ -381,7 +348,7 @@ class Sprite {
 
   */
   switchCostumeTo(someNumber) {
-    //?
+    this.currentFrame = this.animationArray[floor(someNumber) % this.animationArray.length];
   }
 
 }
