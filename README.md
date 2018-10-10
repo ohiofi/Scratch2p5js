@@ -24,3 +24,6 @@ int         | getRadius() | Method to return the radius of the sprite
 int         | getWidth() | Method to return the width of the sprite 
 int         | getX() | Method to return the X value of the sprite
 int         | getY() | Method to return the Y value of the sprite
+int         | setX() | Method that sets X value of sprites
+int         | setY() | Method that sets Y value of sprites
+int         | animationSpeed() | Method that set the Animation Speed of sprites
