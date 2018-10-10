@@ -94,10 +94,6 @@ class Sprite {
       Arguments optional, will default to once every 5 frames if no arguments.
   */
   blink(someFlashSpeed) {
-    /*
-    Will flash the sprite at a given rate, once every someFlashSpeed frames.
-    Arguments optional, will default to once every 5 frames if no arguments.
-    */
     switch (arguments.length) {
       case 0:
         someFlashSpeed = 5
@@ -108,6 +104,17 @@ class Sprite {
       this.show()
       this.flashEnabled = false;
     }
+  }
+  /*
+	Returns true if this sprite's box collider contains the given point.
+	If only one argument is given, assume that the argument is an object with an x and y
+  */
+  boxContains(pointX,pointY){
+	  if(arguments.length === 1) {
+		    pointY = pointX.y
+		    pointX = pointX.x;
+    }
+		return (pointX >= this.x-this.width/2 && pointX <= this.x+this.width/2 && pointY >= this.y-this.height/2 && pointY <= this.y+this.height/2)
   }
   /*
   	changeHeightBy(somePercent)
@@ -141,6 +148,22 @@ class Sprite {
   */
   changeWidthBy(somePercent) {
     this.width *= (1 + somePercent / 100);
+  }
+  /*
+	returns true if the given point is less than radius away from this sprite. In other words, returns true if the sprite's circle collider contains the given point.
+	If only one argument is given, assume that the argument is an object with an x and y
+  */
+  contains(pointX,pointY){
+	if(arguments.length === 1) {
+		    pointY = pointX.y
+		    pointX = pointX.x;
+    }
+	let d = dist(pointX, pointY, this.x, this.y);
+	if(d <= this.radius){
+			return true;
+	}
+	return false; 
+  
   }
   /*
   	flash()
