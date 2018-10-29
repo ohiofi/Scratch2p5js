@@ -15,15 +15,14 @@ A Sprite class for p5.js that makes it easy to move from coding Scratch to codin
 ### Method Summary
 Return Type | Method and Args                 | Description
 ------------|---------------------------------|------------
-void        | setEyeColor(String someColor) | Sets the eye color of this PotatoHead to the given String argument
-String      | toString()  | Method to return a String listing all instance variables
-?           | animate()  | Method to animate the sprite
+void        | animate()  | Method to animate the sprite
+void        | animationSpeed() | Method that sets the Animation Speed of the sprite
 int         | getHeight() | Method to return the height of the sprite
 int         | getImageWidth() | Method to return the width of the sprite's image
 int         | getRadius() | Method to return the radius of the sprite
 int         | getWidth() | Method to return the width of the sprite 
 int         | getX() | Method to return the X value of the sprite
 int         | getY() | Method to return the Y value of the sprite
-int         | setX() | Method that sets X value of sprites
-int         | setY() | Method that sets Y value of sprites
-int         | animationSpeed() | Method that set the Animation Speed of sprites
+void        | setX() | Method that sets X value of the sprite
+void        | setY() | Method that sets Y value of the sprite
+void        | show() | ???
